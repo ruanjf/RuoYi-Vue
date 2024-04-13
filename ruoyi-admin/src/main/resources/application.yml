@@ -112,12 +112,20 @@ pagehelper:
   supportMethodsArguments: true
   params: count=countSql
 
-# Swagger配置
-swagger:
-  # 是否开启swagger
-  enabled: true
-  # 请求前缀
-  pathMapping: /dev-api
+## Swagger配置
+#swagger:
+#  # 是否开启swagger
+#  enabled: true
+#  # 请求前缀
+#  pathMapping: /dev-api
+
+# SpringDoc配置
+springdoc:
+  packagesToScan:
+    - com.ruoyi
+    - com.runjf.pj
+  pathsToExclude:
+    - /system/**
 
 # 防止XSS攻击
 xss:

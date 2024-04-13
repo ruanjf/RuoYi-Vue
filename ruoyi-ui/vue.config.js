@@ -40,6 +40,17 @@ module.exports = {
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
+      },
+      '/swagger-ui/': {
+        target: `http://localhost:8080`,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/swagger-ui': ''
+        }
+      },
+      '/v3/api-docs': {
+        target: `http://localhost:8080`,
+        changeOrigin: true
       }
     },
     disableHostCheck: true
