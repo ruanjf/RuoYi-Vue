@@ -10,6 +10,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.stereotype.Component;
@@ -26,8 +27,9 @@ import com.ruoyi.common.utils.ip.IpUtils;
  */
 @Aspect
 @Component
-public class RateLimiterAspect
-{
+@ConditionalOnBean(RedisTemplate.class)
+public class RateLimiterAspect {
+
     private static final Logger log = LoggerFactory.getLogger(RateLimiterAspect.class);
 
     private RedisTemplate<Object, Object> redisTemplate;

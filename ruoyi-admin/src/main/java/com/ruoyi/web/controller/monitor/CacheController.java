@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,6 +29,7 @@ import com.ruoyi.system.domain.SysCache;
  */
 @RestController
 @RequestMapping("/monitor/cache")
+@ConditionalOnBean(RedisTemplate.class)
 public class CacheController
 {
     @Autowired

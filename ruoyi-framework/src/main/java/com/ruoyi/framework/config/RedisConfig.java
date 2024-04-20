@@ -1,5 +1,6 @@
 package com.ruoyi.framework.config;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -16,8 +17,9 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  */
 @Configuration
 @EnableCaching
-public class RedisConfig extends CachingConfigurerSupport
-{
+@ConditionalOnProperty(name = "spring.redis.enabled", havingValue = "true")
+public class RedisConfig extends CachingConfigurerSupport {
+
     @Bean
     @SuppressWarnings(value = { "unchecked", "rawtypes" })
     public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connectionFactory)
