@@ -135,12 +135,22 @@ public class VelocityUtils
             useWebType = "vm/vue/v3";
         }
         List<String> templates = new ArrayList<String>();
-        templates.add("vm/java/domain.java.vm");
-        templates.add("vm/java/mapper.java.vm");
-        templates.add("vm/java/service.java.vm");
-        templates.add("vm/java/serviceImpl.java.vm");
-        templates.add("vm/java/controller.java.vm");
-        templates.add("vm/xml/mapper.xml.vm");
+//        templates.add("vm/java/domain.java.vm");
+//        templates.add("vm/java/mapper.java.vm");
+//        templates.add("vm/java/service.java.vm");
+//        templates.add("vm/java/serviceImpl.java.vm");
+//        templates.add("vm/java/controller.java.vm");
+//        templates.add("vm/xml/mapper.xml.vm");
+        templates.add("ry-vm-ext/project/java/domain.java.vm");
+        templates.add("ry-vm-ext/project/java/mapper.java.vm");
+        templates.add("ry-vm-ext/project/java/convertor.java.vm");
+        templates.add("ry-vm-ext/project/java/pojo-req.java.vm");
+        templates.add("ry-vm-ext/project/java/pojo-vo.java.vm");
+        templates.add("ry-vm-ext/project/java/service.java.vm");
+        templates.add("ry-vm-ext/project/java/serviceImpl.java.vm");
+        templates.add("ry-vm-ext/project/java/controller.java.vm");
+        templates.add("ry-vm-ext/project/java/abstract-controller.java.vm");
+        templates.add("ry-vm-ext/project/xml/mapper.xml.vm");
         templates.add("vm/sql/sql.vm");
         templates.add("vm/js/api.js.vm");
         if (GenConstants.TPL_CRUD.equals(tplCategory))
@@ -191,6 +201,18 @@ public class VelocityUtils
         {
             fileName = StringUtils.format("{}/mapper/{}Mapper.java", javaPath, className);
         }
+        else if (template.contains("convertor.java.vm"))
+        {
+            fileName = StringUtils.format("{}/convertor/{}Convertor.java", javaPath, className);
+        }
+        else if (template.contains("pojo-req.java.vm"))
+        {
+            fileName = StringUtils.format("{}/pojo/{}Req.java", javaPath, className);
+        }
+        else if (template.contains("pojo-vo.java.vm"))
+        {
+            fileName = StringUtils.format("{}/pojo/{}Vo.java", javaPath, className);
+        }
         else if (template.contains("service.java.vm"))
         {
             fileName = StringUtils.format("{}/service/I{}Service.java", javaPath, className);
@@ -198,6 +220,10 @@ public class VelocityUtils
         else if (template.contains("serviceImpl.java.vm"))
         {
             fileName = StringUtils.format("{}/service/impl/{}ServiceImpl.java", javaPath, className);
+        }
+        else if (template.contains("abstract-controller.java.vm"))
+        {
+            fileName = StringUtils.format("{}/controller/Abstract{}Controller.java", javaPath, className);
         }
         else if (template.contains("controller.java.vm"))
         {

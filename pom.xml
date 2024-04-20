@@ -34,6 +34,8 @@
         <poi.version>4.1.2</poi.version>
         <velocity.version>2.3</velocity.version>
         <jwt.version>0.9.1</jwt.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <runjf-gen.version>1.0-SNAPSHOT</runjf-gen.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -215,6 +217,37 @@
                 <version>${ruoyi.version}</version>
             </dependency>
 
+            <!-- 对象转换 -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+            <!-- 代码生成扩展 -->
+            <dependency>
+                <groupId>com.runjf</groupId>
+                <artifactId>gen-code</artifactId>
+                <version>${runjf-gen.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.runjf</groupId>
+                <artifactId>gen-rt-mp</artifactId>
+                <version>${runjf-gen.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.runjf</groupId>
+                <artifactId>gen-tpl-mp</artifactId>
+                <version>${runjf-gen.version}</version>
+            </dependency>
+
+            <!-- 业务模块 -->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>biz</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -225,6 +258,7 @@
         <module>ruoyi-quartz</module>
         <module>ruoyi-generator</module>
         <module>ruoyi-common</module>
+        <module>biz</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -243,6 +277,11 @@
                             <groupId>com.github.therapi</groupId>
                             <artifactId>therapi-runtime-javadoc-scribe</artifactId>
                             <version>${therapi-runtime-javadoc.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>

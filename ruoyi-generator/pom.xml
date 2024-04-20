@@ -35,6 +35,16 @@
             <artifactId>druid-spring-boot-starter</artifactId>
         </dependency>
 
+        <!-- 代码生成基础 -->
+        <dependency>
+            <groupId>com.runjf</groupId>
+            <artifactId>gen-code</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.runjf</groupId>
+            <artifactId>gen-tpl-mp</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

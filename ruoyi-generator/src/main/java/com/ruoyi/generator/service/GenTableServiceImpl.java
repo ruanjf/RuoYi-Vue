@@ -276,7 +276,14 @@ public class GenTableServiceImpl implements IGenTableService
                 try
                 {
                     String path = getGenPath(table, template);
-                    FileUtils.writeStringToFile(new File(path), sw.toString(), CharsetKit.UTF_8);
+                    final File file = new File(path);
+                    if (template.startsWith("vm-ext") && StringUtils.containsAny(template, "/controller.java.vm", "service.java.vm", "serviceImpl.java.vm", "mapper.java.vm", "convertor.java.vm")) {
+                        // 这些模版不覆盖
+                        if (file.exists()) {
+                            continue;
+                        }
+                    }
+                    FileUtils.writeStringToFile(file, sw.toString(), CharsetKit.UTF_8);
                 }
                 catch (IOException e)
                 {
