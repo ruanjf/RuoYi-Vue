@@ -241,6 +241,12 @@
                 <version>${runjf-gen.version}</version>
             </dependency>
 
+            <!-- 前端 -->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>ruoyi-ui</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
             <!-- 业务模块 -->
             <dependency>
                 <groupId>com.ruoyi</groupId>
@@ -258,6 +264,7 @@
         <module>ruoyi-quartz</module>
         <module>ruoyi-generator</module>
         <module>ruoyi-common</module>
+        <module>ruoyi-ui</module>
         <module>biz</module>
     </modules>
     <packaging>pom</packaging>

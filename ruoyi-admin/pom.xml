@@ -68,6 +68,11 @@
 
         <dependency>
             <groupId>com.ruoyi</groupId>
+            <artifactId>ruoyi-ui</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ruoyi</groupId>
             <artifactId>biz</artifactId>
         </dependency>
 
@@ -100,7 +105,7 @@
                 </configuration>   
            </plugin>   
         </plugins>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>gen-server</finalName>
     </build>
 
 </project>
